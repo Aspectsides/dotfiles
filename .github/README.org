@@ -1,0 +1,42 @@
+#+TITLE: Aspect's Nix Config
+#+AUTHOR: Aspect
+
+* Nixdots
+
+Welcome to my *very* wip nixdots. Please don't use these I literally run nixos on an m1 macbook.
+
+** Showcase
+
+#+CAPTION: Desktop Scrot
+#+ATTR_HTML: :alt Desktop Scrot :title Desktop Scrot :align left
+[[https://raw.githubusercontent.com/Aspectsides/dotnix/main/.github/screenshots/nord.png]]
+
+** Features of config
++ *OS*    -  nixos
++ *WM*    -  sway
++ *SHELL* -  fish
++ *TERM*  -  foot
++ *MUSIC* -  ncmpcpp
++ *EDITOR*-  Doom Emacs
+
+** Nix
+The "Textbook" Definition - A Linux distribution based on the Nix package manager and guided by Nix's core principles.
+
+NixOS is a unique distro. Unlike other distros where you store your configurations in `~/.config/` and binaries in `~/.local/bin` , nix takes a different approach. Instead you can [[https://zero-to-nix.com/concepts/declarative][declaratively]] define your configuration in `.nix` files. These nix files can be used to install and configure programs, services, setting up things like xresources, etc. This approach provides a modular system that enables users to share, reuse, and modify their configurations easily.
+
+*** So, should I use nix?
+I'm going to go against the grain here and say; yes! If you find NixOS interesting, go ahead and try it out! You can always just reinstall arch if it's too hard :D. Seriously, though, it seems like every Nix user in existence doesn't want new Nix users. I just started out on my Nix journey, so my opinions may very well change, but in my opinion, nix isn't difficult; it's just different. You will have a hard time at first, but it will get substantially easier as you go along, and soon it may be hard to go back. So my answer is yes; go ahead and try Nix out. Just make sure you set your root password before you reboot out of the chroot.
+
+** Todo
+somethings i need to do before i can call my config fully usable
+- [ ] Lockscreen with swaylock
+- [ ] lf icons and trash-cli integration
+- [x] Firefox user.js
+- [x] nvim managed with nix
+
+** Credits
+I basically copied code from them lol
+- [[https://github.com/shaunsingh][shaunsingh]]
+- [[https://github.com/JavaCafe01/][javacafe]]
+- [[https://github.com/fortuneteller2k/][f2k]]
+- [[https://github.com/rxyhn][rxyhn]]

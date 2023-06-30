@@ -1,0 +1,1 @@
+home/mail.nix filter=git-crypt diff=git-crypt
