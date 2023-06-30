@@ -19,8 +19,6 @@
 
     ### --- platform support
 
-    nixos-wsl.url = "github:nix-community/NixOS-WSL";
-    nix-darwin.url = "github:lnl7/nix-darwin";
     nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
 
     ### --- flakes
@@ -80,7 +78,6 @@
     ### --- de-duplicate flake inputs
 
     agenix.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nixos-apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
@@ -158,8 +155,6 @@
             })
 
           rust-overlay.overlays.default
-          nixpkgs-f2k.overlays.compositors # for X11 compositors
-          nixpkgs-f2k.overlays.window-managers # window managers such as awesome or river
           neovim-nightly-overlay.overlay
           emacs-overlay.overlay
           nixpkgs-wayland.overlay
@@ -291,20 +286,6 @@
       ### --- linux configurations
 
       nixosConfigurations = {
-        # macbook via UTM virtual machine
-        nixos-utm-aarch64 = mkSystemConfig {
-          system = "aarch64-linux";
-          modules = [ ./hosts/nixos-utm-aarch64 ];
-          hm-modules = [ ];
-        };
-
-        # VMWare guest (windows 11 host)
-        nixos-virtualboy-x86_64 = mkSystemConfig {
-          system = "x86_64-linux";
-          modules = [ ./hosts/nixos-virtualboy-x86_64 ];
-          hm-modules = [ ];
-        };
-
         # asahi on M1 Macbook pro
         starfall = mkSystemConfig {
           system = "aarch64-linux";
@@ -321,24 +302,6 @@
           ];
         };
 
-        # WSL2 on Win11
-        nix-wsl-x86_64 = mkSystemConfig {
-          system = "x86_64-linux";
-          modules = [ ./hosts/nix-wsl-x86_64 ];
-          hm-modules = [ ];
-        };
-      };
-
-      ### --- darwin configurations
-
-      darwinConfigurations = {
-        nix-darwin-aarch64 = mkSystemConfig {
-          system = "aarch64-darwin";
-          modules = [ ./hosts/nix-darwin-aarch64 ];
-          hm-modules = [
-            ./home/themes/oxocarbon-dark.nix
-          ];
-        };
       };
 
       ### --- stuff I should probably upstream but don't
@@ -363,12 +326,6 @@
 
       ### --- make it easier to `nix build *` linux machines
 
-      utm =
-        self.nixosConfigurations.nixos-utm-aarch64.config.system.build.toplevel;
-      virtualboy =
-        self.nixosConfigurations.nixos-virtualboy-x86_64.config.system.build.toplevel;
-      wsl2 =
-        self.nixosConfigurations.nix-wsl-x86_64.config.system.build.toplevel;
       asahi =
         self.nixosConfigurations.nixos-asahi-aarch64.config.system.build.toplevel;
     };

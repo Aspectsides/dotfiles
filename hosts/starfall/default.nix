@@ -22,11 +22,11 @@
   hardware.asahi.useExperimentalGPUDriver = true;
   hardware.asahi.experimentalGPUInstallMode = "driver";
 
-  environment.variables = {
-    MESA_GL_VERSION_OVERRIDE = "3.3";
-    MESA_GLES_VERSION_OVERRIDE = "3.1";
-    MESA_GLSL_VERSION_OVERRIDE = "330";
-  };
+  # environment.variables = {
+  #   MESA_GL_VERSION_OVERRIDE = "3.3";
+  #   MESA_GLES_VERSION_OVERRIDE = "3.1";
+  #   MESA_GLSL_VERSION_OVERRIDE = "330";
+  # };
 
   # swap fn and control key
   boot.kernelParams = [
