@@ -3,13 +3,13 @@
 
 * Nixdots
 
-Welcome to my *very* wip nixdots. Please don't use these I literally run nixos on an m1 macbook.
+Welcome to my *very* wip nixdots. Please don't use these they're literally a nuclear warzone.
 
 ** Showcase
 
 #+CAPTION: Desktop Scrot
 #+ATTR_HTML: :alt Desktop Scrot :title Desktop Scrot :align left
-[[https://raw.githubusercontent.com/Aspectsides/dotnix/main/.github/screenshots/nord.png]]
+[[https://raw.githubusercontent.com/Aspectsides/dotfiles/main/.github/screenshots/nord.png]]
 
 ** Features of config
 + *OS*    -  nixos
