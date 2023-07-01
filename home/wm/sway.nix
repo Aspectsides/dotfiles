@@ -81,7 +81,7 @@
         // {
           "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
           "${modifier}+e" = "exec ${pkgs.emacs-pgtk}/bin/emacsclient -c -a 'emacs'";
-          "${modifier}+d" = "exec ${pkgs.kickoff}/bin/kickoff";
+          "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi -show drun";
           "${modifier}+p" = "exec ${pkgs.screenshot}/bin/screenshot";
           # "${modifier}+Shift+p" = "exec ${pkgs.ocrScript}/bin/wl-ocr";
           "${modifier}+Shift+p" = "exec ${pkgs.grim}/bin/grim -o eDP-1";

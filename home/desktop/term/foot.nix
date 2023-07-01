@@ -8,12 +8,12 @@
     enable = true;
     settings = {
       main = {
-        font = "FiraCode Nerd Font:size=12.5";
+        font = "Rec Mono Duotone:size=12";
         pad = "27x27";
         dpi-aware = "no";
         notify = "${pkgs.libnotify}/bin/notify-send -a foot -i foot \${title} \${body}";
-        line-height = "25px";
-        vertical-letter-offset = "3px";
+        # line-height = "25px";
+        # vertical-letter-offset = "3px";
       };
       mouse.hide-when-typing = "yes";
       scrollback.lines = 32768;

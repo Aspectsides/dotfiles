@@ -271,7 +271,7 @@
                       ./home/desktop/swaybg.nix
                       # ./home/lockers/swaylock.nix
                       ./home/desktop/term/foot.nix
-                      ./home/launchers/kickoff.nix
+                      ./home/launchers/rofi.nix
                       ./home/desktop/notifications/dunst.nix
                     ];
                 };
