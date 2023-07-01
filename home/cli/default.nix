@@ -9,6 +9,7 @@
 let 
   run = import ./run.nix { inherit pkgs; };
   preview = import ./preview.nix { inherit pkgs; };
+  appmenu = import ./appmenu.nix { inherit pkgs; };
 in
 
 {
@@ -42,6 +43,7 @@ in
       pkgs.autotiling-rs
       run # my own script :D
       preview # my own script :D
+      appmenu
       gnupg
       cmake
       gnumake

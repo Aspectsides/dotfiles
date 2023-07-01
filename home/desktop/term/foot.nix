@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       main = {
-        font = "Rec Mono Duotone:size=12";
+        font = "Liga SFMono Nerd Font:size=12";
         pad = "27x27";
         dpi-aware = "no";
         notify = "${pkgs.libnotify}/bin/notify-send -a foot -i foot \${title} \${body}";

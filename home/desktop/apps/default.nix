@@ -20,6 +20,7 @@
       calibre
       srain
       emacs-pgtk
+      paper-icon-theme
       vscode
       cinnamon.nemo
       xfce.tumbler
