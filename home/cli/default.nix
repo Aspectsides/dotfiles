@@ -35,15 +35,13 @@ in
         withPCRE2 = true;
       })
       # rm
-      rip
       unzip
       spotdl
+      file
       ranger
       pkgs.autotiling-rs
       run # my own script :D
       preview # my own script :D
-      direnv
-      mutt-wizard
       gnupg
       cmake
       gnumake
@@ -57,7 +55,8 @@ in
       nodejs
       atool
       exiftool
-      binutils-unwrapped
+      gcc
+      libtool
       trash-cli
       fzf
       cached-nix-shell

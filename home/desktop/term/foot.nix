@@ -8,16 +8,18 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrainsMono Nerd Font:size=12.5";
+        font = "FiraCode Nerd Font:size=12.5";
         pad = "27x27";
         dpi-aware = "no";
         notify = "${pkgs.libnotify}/bin/notify-send -a foot -i foot \${title} \${body}";
+        line-height = "25px";
+        vertical-letter-offset = "3px";
       };
       mouse.hide-when-typing = "yes";
       scrollback.lines = 32768;
       url.launch = "${pkgs.xdg-utils}/bin/xdg-open \${url}";
       tweak.grapheme-shaping = "yes";
-      cursor.style = "underline";
+      cursor.style = "beam";
       colors = with config.lib.base16.theme; {
         background = "${base00-hex}";
         foreground = "${base06-hex}";
