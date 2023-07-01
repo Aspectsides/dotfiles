@@ -36,6 +36,19 @@ services ={
     };
   };
 
+programs.beets = {
+  enable = true;
+  mpdIntegration = {
+    enableStats = true;
+    enableUpdate = true;
+    host =  "127.0.0.1";
+    port = "6600";
+  };
+  settings = {
+    directory = "${config.home.homeDirectory}/Music";
+    library = "${config.home.homeDirectory}/Music/musiclibrary.db";
+  };
+};
   
   programs.ncmpcpp = {
     enable = true;

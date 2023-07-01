@@ -8,7 +8,6 @@
 
 let 
   run = import ./run.nix { inherit pkgs; };
-  hey = import ./hey.nix { inherit pkgs; };
   preview = import ./preview.nix { inherit pkgs; };
 in
 
@@ -16,19 +15,15 @@ in
   imports = [
     ./bat.nix
     ./cava.nix
-    ./cava.nix
     ./zsh.nix
-    ./mpd.nix
+    ./music.nix
     ./lf.nix
-    ./xdg-apps.nix
-    ./nushell.nix
     ./nvim.nix
     ./exa.nix
     ./fish.nix
     ./git.nix
     ./starship.nix
     ./zoxide.nix
-    ./tmux.nix
   ];
 
   home.packages = with pkgs;
@@ -42,6 +37,7 @@ in
       # rm
       rip
       unzip
+      spotdl
       ranger
       pkgs.autotiling-rs
       run # my own script :D

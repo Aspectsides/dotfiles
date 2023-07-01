@@ -18,7 +18,7 @@
       zotero
       komikku
       calibre
-      xfce.thunar
+      srain
       emacs-pgtk
       vscode
       cinnamon.nemo

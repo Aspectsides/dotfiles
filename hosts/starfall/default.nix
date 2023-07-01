@@ -33,6 +33,8 @@
     "hid_apple.swap_fn_leftctrl=1"
   ];
 
+  services.power-profiles-daemon.enable = true;
+
   # fix headphones hack
   environment.systemPackages = [ pkgs.asahi-alsa-utils ];
   systemd.user.services.fix-asahi-jack = {
