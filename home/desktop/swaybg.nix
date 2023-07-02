@@ -7,6 +7,6 @@
   imports = [ ../../modules/home-manager/programs/swaybg.nix ];
   programs.swaybg = {
     enable = true;
-    image = ../../configs/wallpapers/lights.png;
+    image = ../../configs/wallpapers/cyberpunk.png;
   };
 }

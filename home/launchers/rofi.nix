@@ -9,7 +9,7 @@
     enable = true;
     package = pkgs.rofi-wayland;
   };
-  xdg.configFile."rofi/config.rasi".text = ''
+  xdg.configFile."rofi/config.rasi".text = with config.lib.base16.theme; ''
    configuration {
      icon-theme:       "Paper";
      cycle:            true;
@@ -24,18 +24,18 @@
    }
 
    * {
-     accent:   #bd93f9;
-     bg:       #1E2029FA;
-     bg-light: #1c1c1c;
-     bg-focus: #282a36;
-     bg-dark:  #181a23;
-     fg:       #bbc2cf;
-     fg-list:  #bbc2cf;
+     accent:   #${base0C-hex};
+     bg:       #${base00-hex};
+     bg-light: #${base01-hex};
+     bg-focus: #${base01-hex};
+     bg-dark:  #${baseDARK-hex};
+     fg:       #${base05-hex};
+     fg-list:  #${base05-hex};
      on:       #8BD49C;
      off:      #cc6666;
 
      magenta: #bd93f9;
-     blue:    #61bfff;
+     blue:    #${base0C-hex};
 
      text-font:      "Fira Sans 15";
      text-mono-font: "Fira Code 13";
@@ -125,7 +125,7 @@
      background-color: @bg-focus;
    }
    textbox-icon, prompt {
-     background-color: #2f313d;
+     background-color: @bg-light;
    }
    prompt {
      background-color: @bg-focus;

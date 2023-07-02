@@ -194,7 +194,7 @@
       font-family: "Liga SFMono Nerd Font";
       font-size: 16px;
       background: $base00;
-      color: $base05;
+      color: $base04;
       & > * {
         margin: 0px 12px 12px;
       }
@@ -202,14 +202,13 @@
 
     .tags {
       margin-top: 9px;
-      color: $base07;
     }
 
     .active {
-      color: $base09;
+      color: $base06;
       background-color: $base01;
       padding: 6px 9px 6px 6px;
-      border-left: 3px solid $base08;
+      border-left: 3px solid $base0C;
     }
 
     .segment-center {
@@ -219,7 +218,7 @@
     }
 
     .time {
-      color: $base08;
+      color: $base06;
       font-weight: bold;
       margin-bottom: 6px;
     }

@@ -4,9 +4,17 @@ return {
     priority = 1000,
   },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "nord",
-    },
+    "xero/miasma.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme miasma")
+    end,
   },
+  -- {
+  --    "LazyVim/LazyVim",
+  --    opts = {
+  --      colorscheme = "nord",
+  --    },
+  --  },
 }

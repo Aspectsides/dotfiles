@@ -89,6 +89,22 @@
         "type": "github"
       }
     },
+    "base16-sourcerer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688319301,
+        "narHash": "sha256-u3u/1Z+67+z7yYyYWBgvjSYBeFhR1rTMCxXVtsoU0z4=",
+        "owner": "Aspectsides",
+        "repo": "base16-sourcerer-scheme",
+        "rev": "cde0e026d38acce19e633d43eda5968fac2761ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aspectsides",
+        "repo": "base16-sourcerer-scheme",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -1008,6 +1024,7 @@
         "base16-dracula": "base16-dracula",
         "base16-nord": "base16-nord",
         "base16-oxocarbon": "base16-oxocarbon",
+        "base16-sourcerer": "base16-sourcerer",
         "emacs-overlay": "emacs-overlay",
         "eww": "eww",
         "home-manager": "home-manager",

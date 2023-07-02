@@ -62,6 +62,11 @@
       flake = false;
     };
 
+    base16-sourcerer= {
+      url = "github:Aspectsides/base16-sourcerer-scheme";
+      flake = false;
+    };
+
     # nyxt extensions
     nx-kaomoji-src = {
       url = "github:aartaka/nx-kaomoji";
@@ -300,7 +305,7 @@
             ./users/shared/nixos/hardware
           ];
           hm-modules = [
-            ./home/themes/dracula.nix
+            ./home/themes/sourcerer.nix
             ./home/desktop/services/asahi-battery-threshold.nix
             ./home/mail.nix
           ];

@@ -14,7 +14,7 @@
     };
     subpixel.lcdfilter = "default";
     defaultFonts = {
-      monospace = [ "Blex Mono Nerd Font" ];
+      monospace = [ "Hack Nerd Font" ];
       sansSerif = [ "SF Pro Text" ];
       serif = [ "New York Medium" ];
     };
