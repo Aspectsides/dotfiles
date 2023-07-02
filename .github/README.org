@@ -9,7 +9,7 @@ Welcome to my *very* wip nixdots. Please don't use these they're literally a nuc
 
 #+CAPTION: Desktop Scrot
 #+ATTR_HTML: :alt Desktop Scrot :title Desktop Scrot :align left
-[[https://raw.githubusercontent.com/Aspectsides/dotfiles/main/.github/screenshots/nord.png]]
+[[./screenshots/sourcerer.png]]
 
 ** Features of config
 + *OS*    -  nixos
@@ -17,7 +17,7 @@ Welcome to my *very* wip nixdots. Please don't use these they're literally a nuc
 + *SHELL* -  fish
 + *TERM*  -  foot
 + *MUSIC* -  ncmpcpp
-+ *EDITOR*-  Doom Emacs
++ *EDITOR*-  Neovim
 
 ** Nix
 The "Textbook" Definition - A Linux distribution based on the Nix package manager and guided by Nix's core principles.
