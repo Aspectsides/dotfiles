@@ -27,6 +27,33 @@ NixOS is a unique distro. Unlike other distros where you store your configuratio
 *** So, should I use nix?
 I'm going to go against the grain here and say; yes! If you find NixOS interesting, go ahead and try it out! You can always just reinstall arch if it's too hard :D. Seriously, though, it seems like every Nix user in existence doesn't want new Nix users. I just started out on my Nix journey, so my opinions may very well change, but in my opinion, nix isn't difficult; it's just different. You will have a hard time at first, but it will get substantially easier as you go along, and soon it may be hard to go back. So my answer is yes; go ahead and try Nix out. Just make sure you set your root password before you reboot out of the chroot.
 
+** Installation
+Don't blindly follow these instructions. They're here more as a personal note than anything.
+
+Follow the [[https://github.com/tpwrules/nixos-apple-silicon/blob/main/docs/uefi-standalone.md][nixos-apple-silicon]] guide to install asahi, uboot, and m1n1 to your machine. Reboot your machine into NixOS and login as root.
+
+Run the following commands:
+
+1. Clone dotfiles:
+
+#+begin_src sh
+git clone https://github.com/aspectsides/dotfiles /etc/nixos
+cd /etc/nixos
+#+end_src
+
+
+2. Enable flakes
+
+#+begin_src sh
+nix-shell -p nixFlakes
+#+end_src
+
+3. Rebuild system from flake
+
+#+begin_src sh
+nixos-rebuild switch --flake .#starfall
+#+end_src
+
 ** Todo
 somethings i need to do before i can call my config fully usable
 - [ ] Lockscreen with swaylock
