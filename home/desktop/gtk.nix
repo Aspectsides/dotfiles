@@ -8,18 +8,13 @@
     enable = true;
     font.name = "Fira Sans";
     iconTheme = {
-      package = pkgs.whitesur-icon-theme;
-      name = "WhiteSur-dark";
+      package = pkgs.gruvbox-dark-icons-gtk;
+      name = "gruvbox-dark-icons-gtk";
     };
     theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
+      name = "gruvbox-dark";
+      package = pkgs.gruvbox-dark-gtk;
     };
-  };
-  # gtk 4 themes suck
-  xdg.configFile."gtk-4.0" = {
-    source = ../../configs/gtk-4.0;
-    recursive = true;
   };
   home.sessionVariables = {
     GTK_THEME = "Dracula";

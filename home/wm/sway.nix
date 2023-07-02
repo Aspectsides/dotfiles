@@ -116,11 +116,11 @@
         };
       colors = with config.lib.base16.theme; {
         focused = {
-          background = "#${base0E-hex}";
-          indicator = "#${base0E-hex}";
-          border = "#${base0E-hex}";
-          text = "#${base0E-hex}";
-          childBorder = "#${base0E-hex}";
+          background = "#${base0C-hex}";
+          indicator = "#${base0C-hex}";
+          border = "#${base0C-hex}";
+          text = "#${base0C-hex}";
+          childBorder = "#${base0C-hex}";
         };
         focusedInactive = {
           background = "#${base01-hex}";

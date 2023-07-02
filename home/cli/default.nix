@@ -19,7 +19,7 @@ in
     ./zsh.nix
     ./music.nix
     ./lf.nix
-    ./nvim.nix
+    ./tmux.nix
     ./exa.nix
     ./fish.nix
     ./git.nix
@@ -47,6 +47,7 @@ in
       gnupg
       cmake
       gnumake
+      direnv
       git-crypt
       shellcheck
       chafa
