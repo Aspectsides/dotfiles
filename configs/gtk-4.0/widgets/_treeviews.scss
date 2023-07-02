@@ -148,6 +148,9 @@ treeview.view {
         color: $fg_color;
         transition: none; //I shouldn't need this
       }
+
+      &:backdrop { box-shadow: none; }
+      
       sort-indicator {
         &.ascending {
           -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
@@ -185,9 +188,11 @@ treeview.view {
   padding: 0 6px;
   background-image: none;
   border-style: none none solid solid;
+  border-width: 1px;
   border-color: $_treeview_borders_color;
   border-radius: 0;
   text-shadow: none;
+  box-shadow: none;
 
   &:disabled {
     border-color: $bg_color;

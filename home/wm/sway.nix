@@ -116,11 +116,11 @@
         };
       colors = with config.lib.base16.theme; {
         focused = {
-          background = "#${base05-hex}";
-          indicator = "#${base05-hex}";
-          border = "#${base05-hex}";
-          text = "#${base05-hex}";
-          childBorder = "#${base05-hex}";
+          background = "#${base0E-hex}";
+          indicator = "#${base0E-hex}";
+          border = "#${base0E-hex}";
+          text = "#${base0E-hex}";
+          childBorder = "#${base0E-hex}";
         };
         focusedInactive = {
           background = "#${base01-hex}";
@@ -152,8 +152,9 @@
       # font pango:monospace 18px 
       # default_border normal 0
       # default_floating_border normal 0
-      default_border none
-      default_floating_border none
+      default_border pixel 2
+      default_floating_border pixel 2
+      smart_borders on
 
 
       # swayfx

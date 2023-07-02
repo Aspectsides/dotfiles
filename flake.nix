@@ -57,6 +57,11 @@
       flake = false;
     };
 
+    base16-dracula= {
+      url = "github:aspectsides/base16-dracula-scheme";
+      flake = false;
+    };
+
     # nyxt extensions
     nx-kaomoji-src = {
       url = "github:aartaka/nx-kaomoji";
@@ -263,7 +268,6 @@
                       ./home/desktop/fonts.nix
                       ./home/desktop/apps
                       ./home/desktop/bars/eww.nix
-                      ./home/desktop/browsers/nyxt.nix
                       ./home/desktop/browsers/firefox.nix
                     ]
                     ++ nixpkgs.lib.lists.optionals isWayland [
@@ -296,7 +300,7 @@
             ./users/shared/nixos/hardware
           ];
           hm-modules = [
-            ./home/themes/nord.nix
+            ./home/themes/dracula.nix
             ./home/desktop/services/asahi-battery-threshold.nix
             ./home/mail.nix
           ];

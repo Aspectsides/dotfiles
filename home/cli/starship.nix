@@ -9,7 +9,7 @@
     settings = {
       format = "$directory $git_branch$git_status$nix_shell\n$character";
       directory = {
-        format = "[ $path ](bg:#272c36)";
+        format = "[ $path ](bg:#383838)";
         truncate_to_repo = false;        
       };
       character = {

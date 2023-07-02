@@ -41,6 +41,22 @@
         "type": "github"
       }
     },
+    "base16-dracula": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1688243926,
+        "narHash": "sha256-W0wZOHd5tpaegzE5Vlqw+Ge1/Duf9IMZph9IAYDIex4=",
+        "owner": "aspectsides",
+        "repo": "base16-dracula-scheme",
+        "rev": "21c198d415ff0b6cc91c7387e70f75ba152e4577",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aspectsides",
+        "repo": "base16-dracula-scheme",
+        "type": "github"
+      }
+    },
     "base16-nord": {
       "flake": false,
       "locked": {
@@ -989,6 +1005,7 @@
       "inputs": {
         "agenix": "agenix",
         "base16": "base16",
+        "base16-dracula": "base16-dracula",
         "base16-nord": "base16-nord",
         "base16-oxocarbon": "base16-oxocarbon",
         "emacs-overlay": "emacs-overlay",

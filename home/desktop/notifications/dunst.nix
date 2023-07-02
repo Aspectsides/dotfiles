@@ -39,19 +39,19 @@
       # colors
       urgency_low = {
         timeout = 3;
-        background = "#${baseBLEND-hex}";
+        background = "#${base00-hex}";
         foreground = "#${base04-hex}";
         highlight = "#${base0E-hex}";
       };
       urgency_normal = {
         timeout = 6;
-        background = "#${baseBLEND-hex}";
+        background = "#${base00-hex}";
         foreground = "#${base04-hex}";
         highlight = "#${base08-hex}";
       };
       urgency_critical = {
         timeout = 0;
-        background = "#${baseBLEND-hex}";
+        background = "#${base00-hex}";
         foreground = "#${base04-hex}";
         highlight = "#${base0C-hex}";
       };

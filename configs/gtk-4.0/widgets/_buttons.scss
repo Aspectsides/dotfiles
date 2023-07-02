@@ -4,21 +4,20 @@
 // stuff for .needs-attention
 $_dot_color: if($variant=='light', $selected_bg_color,
                                    lighten($selected_bg_color,15%));
-
 @keyframes needs_attention {
   from { background-image: radial-gradient(farthest-side, $_dot_color 0%, transparentize($_dot_color, 1) 0%); }
   to { background-image: radial-gradient(farthest-side, $_dot_color 95%, transparentize($_dot_color, 1)); }
 }
 
-
 %button,
 button {
   @at-root %button_basic, & {
-    min-height: 20px;
+
+    min-height: 24px;
     min-width: 16px;
-    padding: 2px 6px;
-    border: 1px solid $borders_color;
-    border-radius: 4px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 3px;
     transition: $button_transition;
 
     @include button(normal);
@@ -34,14 +33,14 @@ button {
       &:hover {
         transition: $button_transition;
         transition-duration: 500ms;
-        @include button(hover,$selected_bg_color,$selected_fg_color);
+
         &:active { transition: $button_transition; }
       }
     }
 
     &:hover {
       @include button(hover,$selected_bg_color,$selected_fg_color);
-     -gtk-icon-filter: brightness(1.2);
+      -gtk-icon-filter: brightness(1.2);
     }
 
     &:active,
@@ -84,11 +83,6 @@ button {
       padding-left: 4px;
       padding-right: 4px;
     }
-    &.image-button.circular,&.image-button.sidebar-button{
-      padding: 6px 4px;
-      border-radius: 50px;
-      box-shadow: none;
-     }
 
     &.text-button {
       padding-left: 16px;
@@ -98,7 +92,7 @@ button {
     &.text-button.image-button {
       padding-left: 8px;
       padding-right: 8px;
-      border-radius: 2px;
+
       label {
         padding-left: 8px;
         padding-right: 8px;
@@ -129,7 +123,7 @@ button {
   // big standalone buttons like in Documents pager
   &.osd {
     min-width: 24px;
-    min-height: 20px;
+    min-height: 32px;
 
     &.image-button { min-width: 32px; }
 
@@ -210,21 +204,15 @@ button {
   }
 
   // Suggested and Destructive Action buttons
-  @each $b_type, $b_color in (suggested-action, $cyan),
+  @each $b_type, $b_color in (suggested-action, $purple),
                              (destructive-action, $destructive_color) {
     &.#{$b_type} {
-      border: none;
-      
-      @if $b_type ==  suggested-action {
-        @include button(rounded, $b_color, white);
-      } @else {
-        @include button(rounded-red, $b_color, white); 
-      }
+      @include button(normal, $b_color, white);
 
       &.flat {
-       // @include button(undecorated);
-        @include button(rounded, $b_color, white);
-        //color: $b_color; //FIXME: does it work on the dark variant?
+        @include button(undecorated);
+
+        color: $b_color; //FIXME: does it work on the dark variant?
       }
 
       &:hover { @include button(hover, $b_color, white); }
@@ -258,14 +246,14 @@ button {
 
       &:disabled {
         @include button(insensitive, $b_color, white);
-
+        label { color: transparentize($selected_fg_color, 0.2); }
         &:active,
         &:checked { @include button(insensitive-active, $b_color, white); }
       }
 
       .osd & {
         @include button(osd, $b_color);
-        
+
         &:hover { @include button(osd-hover, $b_color); }
 
         &:active,
@@ -332,14 +320,7 @@ button {
     @extend %linked;
   }
 
- .primary-toolbar &, .primary-toolbar .raised & { // tango icons don't need shadows
-    -gtk-icon-shadow: none; 
-
-    &:hover,
-    &:focus {
-      @include button(hover,$selected_bg_color,$selected_fg_color);
-    }
-  }
+  .primary-toolbar & { -gtk-icon-shadow: none; } // tango icons don't need shadows
 
   .linked > &,
   .linked > &:hover,
@@ -387,29 +368,29 @@ toolbar {
                                       // needed since those are flat...
   @include button(undecorated);
 
-  &:hover { color: $selected_fg_color; }
+  &:hover { color: $selected_bg_color; }
 
   &:active,
-  &:checked{ color: darken($selected_fg_color, 5%); }
+  &:checked{ color: darken($selected_bg_color, 5%); }
 
   &:disabled {
     color: $backdrop_text_color;
 
     &:active,
-    &:checked { color: transparentize(darken($selected_fg_color, 5%),0.7); }
+    &:checked { color: transparentize(darken($selected_bg_color, 5%),0.7); }
   }
 
   &:backdrop {
     color: $backdrop_text_color;
 
     &:active,
-    &:checked { color: darken($selected_fg_color, 5%); }
+    &:checked { color: darken($selected_bg_color, 5%); }
 
     &:disabled {
       color: $backdrop_text_color;
 
       &:active,
-      &:checked { color: transparentize(darken($selected_fg_color, 5%),0.7); }
+      &:checked { color: transparentize(darken($selected_bg_color, 5%),0.7); }
     }
   }
 }
@@ -429,11 +410,7 @@ toolbar.inline-toolbar toolbutton:backdrop {
   border: 1px solid $borders_color;
   border-radius: 0;
   border-right-style: none;
-  box-shadow: none;
-  &:disabled {
-    @include button(insensitive, $base_color, $text_color); 
-    color: $insensitive_fg_color;
-  }
+  box-shadow: inset 0px 1px 0px 0px $top_highlight;
 }
 
 %linked {
@@ -534,7 +511,7 @@ button.color {
     &, overlay { border-radius: 0; }
 
     @if $variant == 'light' {
-      box-shadow: none;
+      box-shadow: 0 1px _text_shadow_color();
 
       &:disabled,
       &:backdrop { box-shadow: none; }
@@ -544,9 +521,9 @@ button.color {
 
 notebook, list, .view, popover {
   button {
-    box-shadow: none;
+    box-shadow: inset 0px 0px 0px 1px $borders_color;
     &:backdrop {
-      box-shadow: none;
+      box-shadow: inset 0px 0px 0px 1px $borders_color;
     }
   }
   .linked > button {

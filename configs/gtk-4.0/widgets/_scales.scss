@@ -1,19 +1,21 @@
 /************
  * GtkScale *
  ************/
+ $scale_slider_bg: if($variant == 'light', $base_color, lighten($base_color, 45%));
+ $scale_trough_bg: if($variant == 'light', transparentize(black,0.86), lighten(transparentize($bg_color,0.86), 47%));
 %scale_trough {
-  background-color: $scale_bg;
+  background-color: $scale_trough_bg;
   border: none;
   border-radius: 3px;
   margin: 0;
 
-  &:disabled { background-color: $scale_disabled_bg; }
+  &:disabled { background-color: transparentize(black,0.86); }
 
   &:backdrop {
-    background-color: $scale_disabled_bg; 
+    background-color: transparentize(black,0.86);
     transition: $backdrop_transition;
 
-    &:disabled { background-color: $scale_disabled_bg;  }
+    &:disabled { background-color: transparentize(black,0.86); }
   }
 }
 
@@ -25,7 +27,7 @@
 
   &:disabled {
     border: none;
-    background-color: $scale_bg;
+    background-color: transparentize(black, 0.86);
   }
 
   &:backdrop,
@@ -33,7 +35,7 @@
     border-color: lighten($selected_bg_color, 5%);
     background-color: lighten($selected_bg_color, 5%);
     &:disabled {
-      background-color: $scale_disabled_bg;
+      background-color: transparentize(black, 0.9);
     }
   }
 }
@@ -64,7 +66,7 @@ scale {
     min-width: 16px;
     margin: -7px;
 
-    background-color: $base_color;
+    background-color: $scale_slider_bg;
     box-shadow: inset 0 1px $top_highlight,
                 0px 0px 1px 1px rgba(0,0,0,0.1);
     border-radius: 12px;
@@ -73,7 +75,7 @@ scale {
     transition-property: background, border, box-shadow;
 
     &:active {
-      background-color: $selected_bg_color;
+      background-color: $purple;
 
       &:disabled {
         background-color: $insensitive_bg_color;
@@ -145,21 +147,21 @@ scale {
     }
   }
 
-  $_scale_bg: if($variant == 'light', $base_color, darken(#fefefe, 5%));
-  $_scale_disabled_bg: darken($_scale_bg, 25%);
   slider {
-    border-color: $_scale_bg;
+    border-color: $base_color;
     border: none;
     border-radius: 12px;
 
-    background-color: $_scale_bg;
+    background-color: $scale_slider_bg;
+    box-shadow: inset 0 1px $top_highlight,
+                0px 0px 1px 1px rgba(0,0,0,0.1);
 
     &:hover { @include button(hover-alt, $edge: $shadow_color); }
 
     &:active { border-color: $selected_borders_color; }
 
     &:disabled {
-      background-color: $_scale_disabled_bg;
+      background-color: $insensitive_bg_color;
       box-shadow: inset 0 1px $top_highlight,
                   0px 0px 1px 1px rgba(0,0,0,0.1);
       }
@@ -168,7 +170,7 @@ scale {
     &:backdrop:disabled {
       transition: $backdrop_transition;
 
-      background-color: $_scale_disabled_bg;
+      background-color: darken($scale_slider_bg, 20%);
       box-shadow: inset 0 1px $top_highlight,
                   0px 0px 1px 1px rgba(0,0,0,0.1);
     }
@@ -180,30 +182,30 @@ scale {
     .osd & {
       @include button(osd);
       border-color: darken($osd_borders_color, 3%);
-      background-color: opacify($_scale_bg, 1); // solid background needed here
+      background-color: opacify($osd_bg_color, 1); // solid background needed here
 
       &:hover {
         @include button(osd-hover);
-        background-color: opacify($_scale_bg, 1); // solid background needed here
+        background-color: opacify($osd_bg_color, 1); // solid background needed here
       }
 
       &:active {
         @include button(osd-active);
-        background-color: opacify($_scale_bg, 1); // solid background needed here
+        background-color: opacify($osd_bg_color, 1); // solid background needed here
       }
 
       &:disabled {
         @include button(osd-insensitive);
-        background-color: opacify($_scale_bg, 1); // solid background needed here
+        background-color: opacify($osd_bg_color, 1); // solid background needed here
       }
 
       &:backdrop {
-        @include button(osd-backdrop, $_scale_disabled_bg);
-        background-color: opacify($_scale_disabled_bg, 1); // solid background needed here
+        @include button(osd-backdrop);
+        background-color: opacify($osd_bg_color, 1); // solid background needed here
 
         &:disabled {
           @include button(osd-backdrop-insensitive);
-          background-color: opacify($_scale_bg, 1); // solid background needed here
+          background-color: opacify($osd_bg_color, 1); // solid background needed here
         }
       }
     }
@@ -282,8 +284,9 @@ scale {
               border: none;
               border-radius: 50%;
 
-              background-color: $_scale_bg;
-              box-shadow: none;
+              background-color: $scale_slider_bg;
+              box-shadow: inset 0 1px $top_highlight,
+                          0px 0px 1px 1px rgba(0,0,0,0.1);
               }
           }
 

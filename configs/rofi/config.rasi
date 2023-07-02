@@ -13,21 +13,21 @@ configuration {
 }
 
 * {
-  accent:   #88C0D0;
-  bg-light: #2e3440;
-  bg:       #242831;
+  accent:   #bd93f9;
+  bg:       #1E2029FA;
+  bg-light: #1c1c1c;
   bg-focus: #282a36;
-  bg-dark:  #3B4252;
-  fg:       #E5E9F0;
-  fg-list:  #E5E9F0;
+  bg-dark:  #181a23;
+  fg:       #bbc2cf;
+  fg-list:  #bbc2cf;
   on:       #8BD49C;
   off:      #cc6666;
 
   magenta: #bd93f9;
   blue:    #61bfff;
 
-  text-font:      "SF Pro Text 15";
-  text-mono-font: "Rec Mono Linear 13";
+  text-font:      "Fira Sans 15";
+  text-mono-font: "Fira Code 13";
   /* icon-font:      "Hurmit Nerd Font Mono 26"; */
   icon-font:      "FontAwesome 20";
 
