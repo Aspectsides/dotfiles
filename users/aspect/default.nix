@@ -15,6 +15,6 @@
       "render"
       "docker"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
   };
 }

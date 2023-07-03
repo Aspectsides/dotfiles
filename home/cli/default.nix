@@ -45,6 +45,7 @@ in
       preview # my own script :D
       appmenu
       gnupg
+      any-nix-shell
       cmake
       gnumake
       direnv

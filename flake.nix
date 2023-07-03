@@ -40,6 +40,47 @@
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     sops-nix.url = "github:Mic92/sops-nix";
 
+    # Non Flakes
+    fzf-tab = {
+      url = "github:Aloxaf/fzf-tab";
+      flake = false;
+    };
+
+    rounded-sbe = {
+      url = "github:a-parhom/RoundedSBE";
+      flake = false;
+    };
+
+    sfmonoNerdFontLig = {
+      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
+      flake = false;
+    };
+
+    skippy-xd = {
+      url = "github:dreamcat4/skippy-xd";
+      flake = false;
+    };
+
+    zsh-completions = {
+      url = "github:zsh-users/zsh-completions";
+      flake = false;
+    };
+
+    zsh-nix-shell = {
+      url = "github:chisui/zsh-nix-shell";
+      flake = false;
+    };
+
+    zsh-syntax-highlighting = {
+      url = "github:zsh-users/zsh-syntax-highlighting";
+      flake = false;
+    };
+
+    zsh-autosuggestions = {
+      url = "github:zsh-users/zsh-autosuggestions";
+      flake = false;
+    };
+
     # desktop
     eww.url = "github:elkowar/eww";
 
@@ -150,6 +191,7 @@
             in
             {
               eww-wayland-git = eww.packages.${system}.eww-wayland;
+              awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-luajit-git;
             }
             // {
               /*
