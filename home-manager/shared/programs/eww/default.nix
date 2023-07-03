@@ -11,7 +11,8 @@
       brightnessctl
       pamixer
       coreutils
-    ]
+    ];
+  theme = config.colorScheme;
   ewwYuck = pkgs.writeText "eww.yuck" (''
       (defwidget bar []
         (centerbox :orientation "v"
@@ -89,10 +90,6 @@
       (deflisten battery-level
          `cat /sys/class/power_supply/macsmc-battery/capacity`)
 
-    ''
-    + (
-      if withSway
-      then ''
         (defwidget tags []
           (box :class "tags"
                :orientation "v"
@@ -113,30 +110,6 @@
                        { "tag": 9, "label": "九" },
                        { "tag": 0, "label": "rM" }]')
 
-      ''
-      else ''
-        (defwidget tags []
-          (box :class "tags"
-               :orientation "v"
-               :halign "center"
-            (for tag in tags
-              (box :class {active-tag == tag.tag ? "active" : "inactive"}
-                (button :onclick "riverctl set-focused-tags ''${tag.tag} ; ''${EWW_CMD} update active-tag=''${tag.tag}"
-                  "''${tag.label}")))))
-
-        (defvar tags '[{ "tag": 1, "label": "一" },
-                       { "tag": 2, "label": "二" },
-                       { "tag": 4, "label": "三" },
-                       { "tag": 8, "label": "四" },
-                       { "tag": 16, "label": "五" },
-                       { "tag": 32, "label": "六" },
-                       { "tag": 64, "label": "七" },
-                       { "tag": 128, "label": "八" },
-                       { "tag": 256, "label": "九" }]')
-
-      ''
-    )
-    + ''
       (defwindow bar
         :monitor 0
         :stacking "fg"
@@ -160,23 +133,23 @@
         (bar))
     '');
 
-  ewwScss = pkgs.writeText "eww.scss" (with config.lib.base16.theme; ''
-    $base00: #${base00-hex};
-    $base01: #${base01-hex};
-    $base02: #${base02-hex};
-    $base03: #${base03-hex};
-    $base04: #${base04-hex};
-    $base05: #${base05-hex};
-    $base06: #${base06-hex};
-    $base07: #${base07-hex};
-    $base08: #${base08-hex};
-    $base09: #${base09-hex};
-    $base0A: #${base0A-hex};
-    $base0B: #${base0B-hex};
-    $base0C: #${base0C-hex};
-    $base0D: #${base0D-hex};
-    $base0E: #${base0E-hex};
-    $base0F: #${base0F-hex};
+  ewwScss = pkgs.writeText "eww.scss" (with theme.colors; ''
+    $base00: #${base00};
+    $base01: #${base01};
+    $base02: #${base02};
+    $base03: #${base03};
+    $base04: #${base04};
+    $base05: #${base05};
+    $base06: #${base06};
+    $base07: #${base07};
+    $base08: #${base08};
+    $base09: #${base09};
+    $base0A: #${base0A};
+    $base0B: #${base0B};
+    $base0C: #${base0C};
+    $base0D: #${base0D};
+    $base0E: #${base0E};
+    $base0F: #${base0F};
 
     * {
       all: unset;

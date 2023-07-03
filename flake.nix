@@ -62,6 +62,11 @@
       flake = false;
     };
 
+    zsh-autosuggestions = {
+      url = "github:zsh-users/zsh-autosuggestions";
+      flake = false;
+    };
+
     # Default branch
     nixpkgs.follows = "nixos-unstable";
     home.inputs.nixpkgs.follows = "nixpkgs";
@@ -106,7 +111,6 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
-        # FIXME replace with your hostname
         starfall = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [

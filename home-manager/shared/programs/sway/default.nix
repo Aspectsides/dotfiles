@@ -18,7 +18,7 @@ in
     config = {
       startup = [
         {
-          command = "${pkgs.eww-wayland-git}/bin/eww open bar && ${pkgs.eww-wayland-git}/bin/eww open bar2";
+          command = "${pkgs.eww-wayland}/bin/eww open bar && ${pkgs.eww-wayland}/bin/eww open bar2";
           always = false;
         }
         {
@@ -67,7 +67,7 @@ in
             concatAttrs
               (map
                 (i: {
-                  "${modifier}+${toString i}" = "exec 'swaymsg workspace ${toString i} && ${pkgs.eww-wayland-git}/bin/eww update active-tag=${toString i}'";
+                  "${modifier}+${toString i}" = "exec 'swaymsg workspace ${toString i} && ${pkgs.eww-wayland}/bin/eww update active-tag=${toString i}'";
                   "${modifier}+Shift+${toString i}" = "exec 'swaymsg move container to workspace ${toString i}'";
                 })
                 (lib.range 0 9));
@@ -78,12 +78,12 @@ in
           "${modifier}+d" = "exec appmenu";
           # "${modifier}+Shift+p" = "exec ${pkgs.ocrScript}/bin/wl-ocr";
           "${modifier}+Shift+p" = "exec ${pkgs.grim}/bin/grim -o eDP-1";
-          "XF86AudioLowerVolume" = "exec ${pkgs.volume}/bin/volume -d 5";
-          "XF86AudioRaiseVolume" = "exec ${pkgs.volume}/bin/volume -i 5";
-          "${modifier}+Shift+v" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-          "${modifier}+Shift+b" = "exec ${pkgs.volume}/bin/volume -t";
-          "XF86MonBrightnessDown" = "exec ${pkgs.brightness}/bin/brightness set 5%-";
-          "XF86MonBrightnessUp" = "exec ${pkgs.brightness}/bin/brightness set 5%+";
+          # "XF86AudioLowerVolume" = "exec ${pkgs.volume}/bin/volume -d 5";
+          # "XF86AudioRaiseVolume" = "exec ${pkgs.volume}/bin/volume -i 5";
+          # "${modifier}+Shift+v" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+          # "${modifier}+Shift+b" = "exec ${pkgs.volume}/bin/volume -t";
+          # "XF86MonBrightnessDown" = "exec ${pkgs.brightness}/bin/brightness set 5%-";
+          # "XF86MonBrightnessUp" = "exec ${pkgs.brightness}/bin/brightness set 5%+";
           "${modifier}+Shift+n" = "exec ${pkgs.playerctl}/bin/playerctl previous";
           "${modifier}+Shift+m" = "exec ${pkgs.playerctl}/bin/playerctl next";
 
@@ -107,34 +107,34 @@ in
           "${modifier}+Shift+c" = "reload";
           "${modifier}+Shift+e" = "exit";
         };
-      colors = with config.lib.base16.theme; {
+      colors = with theme.colors; {
         focused = {
-          background = "#${base0C-hex}";
-          indicator = "#${base0C-hex}";
-          border = "#${base0C-hex}";
-          text = "#${base0C-hex}";
-          childBorder = "#${base0C-hex}";
+          background = "#${base0C}";
+          indicator = "#${base0C}";
+          border = "#${base0C}";
+          text = "#${base0C}";
+          childBorder = "#${base0C}";
         };
         focusedInactive = {
-          background = "#${base01-hex}";
-          indicator = "#${base01-hex}";
-          border = "#${base01-hex}";
-          text = "#${base01-hex}";
-          childBorder = "#${base01-hex}";
+          background = "#${base01}";
+          indicator = "#${base01}";
+          border = "#${base01}";
+          text = "#${base01}";
+          childBorder = "#${base01}";
         };
         unfocused = {
-          background = "#${base01-hex}";
-          indicator = "#${base01-hex}";
-          border = "#${base01-hex}";
-          text = "#${base01-hex}";
-          childBorder = "#${base01-hex}";
+          background = "#${base01}";
+          indicator = "#${base01}";
+          border = "#${base01}";
+          text = "#${base01}";
+          childBorder = "#${base01}";
         };
         urgent = {
-          background = "#${base0A-hex}";
-          indicator = "#${base0A-hex}";
-          border = "#${base0A-hex}";
-          text = "#${base0A-hex}";
-          childBorder = "#${base0A-hex}";
+          background = "#${base0A}";
+          indicator = "#${base0A}";
+          border = "#${base0A}";
+          text = "#${base0A}";
+          childBorder = "#${base0A}";
         };
       };
     };

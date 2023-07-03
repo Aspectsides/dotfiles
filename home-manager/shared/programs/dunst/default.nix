@@ -1,9 +1,12 @@
 { config, ... }:
 
+let theme = config.colorScheme;
+in
+
 {
   services.dunst = {
     enable = true;
-    settings = with config.lib.base16.theme; {
+    settings = with theme.colors; {
       global = {
         # gen settings
         follow = "mouse";
@@ -21,7 +24,7 @@
         frame_width = 0;
         gap_size = 9;
         font = "Liga SFMono Nerd Font 11";
-        format = "<span size='x-large' font_desc='Liga SFMono Nerd Font 9' weight='bold' foreground='#${base04-hex}'>%a</span>\\n%s\\n%b";
+        format = "<span size='x-large' font_desc='Liga SFMono Nerd Font 9' weight='bold' foreground='#${base04}'>%a</span>\\n%s\\n%b";
         show_indicators = false;
         mouse_left_click = "do_action";
         mouse_middle_click = "close_all";
@@ -34,23 +37,23 @@
       fullscreen_delay_everything = { fullscreen = "delay"; };
 
       # colors
-      urgency_low = {
+      urgency_low = with theme.colors; {
         timeout = 3;
-        background = "#${base00-hex}";
-        foreground = "#${base04-hex}";
-        highlight = "#${base0E-hex}";
+        background = "#${base00}";
+        foreground = "#${base04}";
+        highlight = "#${base0E}";
       };
-      urgency_normal = {
+      urgency_normal = with theme.colors; {
         timeout = 6;
-        background = "#${base00-hex}";
-        foreground = "#${base04-hex}";
-        highlight = "#${base08-hex}";
+        background = "#${base00}";
+        foreground = "#${base04}";
+        highlight = "#${base08}";
       };
-      urgency_critical = {
+      urgency_critical =  with theme.colors; {
         timeout = 0;
-        background = "#${base00-hex}";
-        foreground = "#${base04-hex}";
-        highlight = "#${base0C-hex}";
+        background = "#${base00}";
+        foreground = "#${base04}";
+        highlight = "#${base0C}";
       };
     };
   };

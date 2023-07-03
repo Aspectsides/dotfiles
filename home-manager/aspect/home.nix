@@ -20,7 +20,14 @@
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
     (import ../shared/programs/exa { inherit config; })
-    (import ../shared/programs/sway { inherit config; })
+    (import ../shared/programs/sway { inherit config inputs lib pkgs; })
+    (import ../shared/programs/lf { inherit config inputs lib pkgs; })
+    (import ../shared/programs/eww { inherit config inputs lib pkgs; })
+    (import ../shared/programs/rofi { inherit config inputs lib pkgs; })
+    (import ../shared/programs/tmux { inherit config inputs lib pkgs; })
+    (import ../shared/programs/music { inherit config inputs lib pkgs; })
+    (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
+    (import ../shared/programs/dunst { inherit config inputs lib pkgs; })
 
     (import ../shared/programs/firefox {
       inherit config pkgs;
@@ -36,7 +43,7 @@
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/starship { inherit config; })
 
-    (import ../shared/programs/zsh { inherit config pkgs inputs; colorIt = false; })
+    (import ../shared/programs/zsh { inherit config pkgs inputs lib; colorIt = false; })
   ];
 
   nixpkgs = {
@@ -147,7 +154,7 @@
       '';
     };
 
-    homeDirectory = "/home/javacafe01";
+    homeDirectory = "/home/aspect";
 
     packages = lib.attrValues {
       inherit (pkgs)
@@ -169,13 +176,9 @@
         komikku
         calibre
         srain
-        emacs-pgtk
         paper-icon-theme
         vscode
-        nemo
-        tumbler
         font-manager
-        ristretto
         transmission-gtk
 
         # Extras

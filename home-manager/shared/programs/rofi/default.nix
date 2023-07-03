@@ -11,7 +11,7 @@ in
     enable = true;
     package = pkgs.rofi-wayland;
   };
-  xdg.configFile."rofi/config.rasi".text = with config.lib.base16.theme; ''
+  xdg.configFile."rofi/config.rasi".text = with theme.colors; ''
    configuration {
      icon-theme:       "Paper";
      cycle:            true;
@@ -26,18 +26,18 @@ in
    }
 
    * {
-     accent:   #${base0C-hex};
-     bg:       #${base00-hex};
-     bg-light: #${base01-hex};
-     bg-focus: #${base01-hex};
-     bg-dark:  #${baseDARK-hex};
-     fg:       #${base05-hex};
-     fg-list:  #${base05-hex};
+     accent:   #${base0C};
+     bg:       #${base00};
+     bg-light: #${base01};
+     bg-focus: #${base01};
+     bg-dark:  #${base00};
+     fg:       #${base05};
+     fg-list:  #${base05};
      on:       #8BD49C;
      off:      #cc6666;
 
      magenta: #bd93f9;
-     blue:    #${base0C-hex};
+     blue:    #${base0C};
 
      text-font:      "Fira Sans 15";
      text-mono-font: "Fira Code 13";
