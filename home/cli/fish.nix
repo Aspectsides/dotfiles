@@ -8,13 +8,14 @@
     enable = true;
     shellAliases = with pkgs; {
       ":q" = "exit";
-      git-rebase = "git rebase -i HEAD~2";
       ll = "${pkgs.exa}/bin/exa -lF --color-scale --no-user --no-time --no-permissions --group-directories-first --icons -a";
       ls = "${pkgs.exa}/bin/exa -lF --group-directories-first --icons -a";
       cp = "${pkgs.xcp}/bin/xcp";
       top = "${pkgs.bottom}/bin/btm";
       cat = "${pkgs.bat}/bin/bat --paging=never";
       v = "${pkgs.neovim-nightly}/bin/nvim --startuptime /tmp/nvim-startuptime";
+      ta = "${pkgs.tmux}/bin/tmux attach";
+      t = "${pkgs.tmux}/bin/tmux";
       build = "sudo nixos-rebuild switch --flake /etc/nixos#nixos-asahi-aarch64";
       gl = "git clone";
     };

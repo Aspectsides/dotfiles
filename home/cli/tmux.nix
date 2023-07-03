@@ -25,6 +25,11 @@
       set -g status-right-length 30
       set -g status-left-length 30
 
+      # Change prefix to backtick
+      unbind C-b
+      set-option -g prefix `
+      bind ` send-prefix
+
       # The Bindings
       unbind %
       bind h split-window -v
