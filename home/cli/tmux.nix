@@ -24,6 +24,20 @@
       set -g status-right '#[fg=colour238]|―――――――――――――――――――――――|'
       set -g status-right-length 30
       set -g status-left-length 30
+
+      # The Bindings
+      unbind %
+      bind h split-window -v
+      unbind '"'
+      bind v split-window -h
+      bind r source-file ~/.config/tmux/tmux.conf
+      unbind [
+      bind escape copy-mode
+      unbind p
+      bind p paste-buffer
+      bind-key -T copy-mode-vi 'v' send -X begin-selection
+      bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "xsel -i" \; send-keys enter
+      bind-key -T copy-mode-vi 'Y' send -X copy-pipe-and-cancel "tmux loadb -" \; send-keys enter
       
       # The messages
       set -g message-style fg=magenta,bg=colour236

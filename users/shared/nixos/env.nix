@@ -6,7 +6,7 @@
 }: {
   environment.variables = {
     # defaults
-    # EDITOR = "emacsclient -c -a 'emacs'";
+    EDITOR = "nvim";
     # BROWSER = "firefox";
 
     # qt settings
