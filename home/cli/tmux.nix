@@ -15,6 +15,8 @@
     extraConfig = with config.lib.base16.theme; ''
       # The statusbar
       set -g status-position bottom
+      set -g base-index 1
+      set -g pane-base-index 1
       set -g status-justify centre
       set -g status-bg colour0
       set -g status-fg colour5
@@ -26,7 +28,8 @@
       # The messages
       set -g message-style fg=magenta,bg=colour236
       set -g message-command-style fg=blue,bg=black
-      
+      # keep window names fixed
+            
       # loud or quiet?
       set-option -g visual-activity off
       set-option -g visual-bell off

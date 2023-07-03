@@ -1,3 +1,0 @@
-return {
-  { "elkowar/yuck.vim" },
-}
