@@ -9,7 +9,7 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.sway;
+    package = pkgs.sway-hidpi;
     systemdIntegration = true;
     extraSessionCommands = ''
       export XDG_CURRENT_DESKTOP=sway;

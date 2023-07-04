@@ -57,6 +57,7 @@
       # neovim-nightly-overlay.overlays.default
       inputs.nixpkgs-f2k.overlays.stdenvs
       inputs.nur.overlay
+      inputs.nixpkgs-wayland.overlay
 
       # Or define it inline, for example:
       # (final: prev: {
