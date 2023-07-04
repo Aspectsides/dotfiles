@@ -44,6 +44,7 @@ in
       pkgs.autotiling-rs
       run # my own script :D
       preview # my own script :D
+      deadnix
       appmenu
       gnupg
       any-nix-shell
