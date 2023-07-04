@@ -48,6 +48,12 @@ in
       appmenu
       gnupg
       any-nix-shell
+      ccls
+      clang
+      clang-tools
+      nil
+      rust-analyzer
+      sumneko-lua-language-server
       cmake
       gnumake
       git-crypt
@@ -60,7 +66,6 @@ in
       nodejs
       atool
       exiftool
-      gcc
       libtool
       trash-cli
       fzf

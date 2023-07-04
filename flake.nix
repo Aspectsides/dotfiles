@@ -345,7 +345,6 @@
           hm-modules = [
             ./home/themes/tomorrow.nix
             ./home/desktop/services/asahi-battery-threshold.nix
-            ./home/mail.nix
           ];
         };
 
