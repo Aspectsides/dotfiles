@@ -28,7 +28,7 @@
      bg:       #${base00-hex};
      bg-light: #${base01-hex};
      bg-focus: #${base01-hex};
-     bg-dark:  #${baseDARK-hex};
+     bg-dark:  #${base00-hex};
      fg:       #${base05-hex};
      fg-list:  #${base05-hex};
      on:       #8BD49C;

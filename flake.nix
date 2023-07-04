@@ -93,18 +93,14 @@
       url = "github:shaunsingh/base16-oxocarbon";
       flake = false;
     };
-    base16-nord = {
-      url = "github:aspectsides/base16-nord-scheme";
-      flake = false;
-    };
-
-    base16-dracula= {
-      url = "github:aspectsides/base16-dracula-scheme";
-      flake = false;
-    };
 
     base16-sourcerer= {
       url = "github:Aspectsides/base16-sourcerer-scheme";
+      flake = false;
+    };
+
+    base16-schemes = {
+      url = "github:tinted-theming/base16-schemes";
       flake = false;
     };
 
@@ -347,7 +343,7 @@
             ./users/shared/nixos/hardware
           ];
           hm-modules = [
-            ./home/themes/sourcerer.nix
+            ./home/themes/tomorrow.nix
             ./home/desktop/services/asahi-battery-threshold.nix
             ./home/mail.nix
           ];

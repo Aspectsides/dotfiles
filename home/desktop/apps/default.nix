@@ -16,6 +16,7 @@
     [
       psst
       zotero
+      gimp
       komikku
       calibre
       srain

@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       main = {
-        font = "Hack Nerd Font:size=12";
+        font = "CaskaydiaCove Nerd Font:size=12";
         pad = "27x27";
         dpi-aware = "no";
         notify = "${pkgs.libnotify}/bin/notify-send -a foot -i foot \${title} \${body}";

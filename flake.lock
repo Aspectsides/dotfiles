@@ -41,38 +41,6 @@
         "type": "github"
       }
     },
-    "base16-dracula": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1688243926,
-        "narHash": "sha256-W0wZOHd5tpaegzE5Vlqw+Ge1/Duf9IMZph9IAYDIex4=",
-        "owner": "aspectsides",
-        "repo": "base16-dracula-scheme",
-        "rev": "21c198d415ff0b6cc91c7387e70f75ba152e4577",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aspectsides",
-        "repo": "base16-dracula-scheme",
-        "type": "github"
-      }
-    },
-    "base16-nord": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1687933109,
-        "narHash": "sha256-9KuI4Q70iVpMKhtzvYIil/5CRyOi7BeD+eD0ee9+URk=",
-        "owner": "aspectsides",
-        "repo": "base16-nord-scheme",
-        "rev": "869e565d0409014864f68a6adf00fa37f7568187",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aspectsides",
-        "repo": "base16-nord-scheme",
-        "type": "github"
-      }
-    },
     "base16-oxocarbon": {
       "flake": false,
       "locked": {
@@ -86,6 +54,22 @@
       "original": {
         "owner": "shaunsingh",
         "repo": "base16-oxocarbon",
+        "type": "github"
+      }
+    },
+    "base16-schemes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1683064489,
+        "narHash": "sha256-AngNF++RZQB0l4M8pRgcv66pAcIPY+cCwmUOd+RBJKA=",
+        "owner": "tinted-theming",
+        "repo": "base16-schemes",
+        "rev": "9a4002f78dd1094c123169da243680b2fda3fe69",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "base16-schemes",
         "type": "github"
       }
     },
@@ -1037,9 +1021,8 @@
       "inputs": {
         "agenix": "agenix",
         "base16": "base16",
-        "base16-dracula": "base16-dracula",
-        "base16-nord": "base16-nord",
         "base16-oxocarbon": "base16-oxocarbon",
+        "base16-schemes": "base16-schemes",
         "base16-sourcerer": "base16-sourcerer",
         "emacs-overlay": "emacs-overlay",
         "eww": "eww",
