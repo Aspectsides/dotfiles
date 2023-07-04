@@ -116,6 +116,11 @@
 
   home = {
     activation = {
+      installAwesomeConfig = ''
+        if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
+          ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome" 
+        fi
+      '';
       installNvimConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
           ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
@@ -178,12 +183,14 @@
         psst
         zotero
         komikku
+        webcord
         calibre
         srain
         paper-icon-theme
         vscode
         font-manager
         transmission-gtk
+        autotiling-rs
 
         # Extras
         fd

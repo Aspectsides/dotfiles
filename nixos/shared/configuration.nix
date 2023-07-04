@@ -6,11 +6,56 @@
 
   networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
+  security.rtkit.enable = true;
+
+  services = {
+    upower.enable = true;
+    fstrim.enable = true;
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+      alsa.support32Bit = true;
+      alsa.enable = true;
+    };
+  };
+
+  hardware.bluetooth.enable = true;
+  hardware.opengl.enable = true;
+  services.blueman.enable = true;
+  environment.etc."wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+    bluez_monitor.properties = {
+      ["bluez5.enable-sbc-xq"] = true,
+      ["bluez5.enable-msbc"] = true,
+      ["bluez5.enable-hw-volume"] = true,
+      ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+    }
+  '';
+
+  zramSwap.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals =
+      [
+        pkgs.xdg-desktop-portal-gtk
+      ];
+  };
 
   environment = {
     binsh = "${pkgs.bash}/bin/bash";
     shells = with pkgs; [ zsh ];
 
+
+    sessionVariables = {
+      # These are the defaults, and xdg.enable does set them, but due to load
+      # order, they're not set before environment.variables are set, which could
+      # cause race conditions.
+      XDG_CACHE_HOME = "$HOME/.cache";
+      XDG_CONFIG_HOME = "$HOME/.config";
+      XDG_DATA_HOME = "$HOME/.local/share";
+      XDG_BIN_HOME = "$HOME/.local/bin";
+    };
 
     systemPackages = lib.attrValues {
       inherit (pkgs)
@@ -23,8 +68,23 @@
 
     variables = {
       EDITOR = "${pkgs.neovim}/bin/nvim";
-      "_JAVA_OPTIONS" = "-Dawt.useSystemAAFontSettings=lcd";
-      "_JAVA_AWT_WM_NONREPARENTING" = "1";
+      NIXOS_OZONE_WL = "1";
+      XDG_SESSION_TYPE = "wayland";
+      SDL_VIDEODRIVER = "wayland";
+      CLUTTER_BACKEND = "wayland";
+      GDK_BACKEND = "wayland";
+
+      # qt
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+
+      # java
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+
+      # firefox
+      MOZ_ENABLE_WAYLAND = "1";
+      MOZ_USE_XINPUT2 = "1";
+      MOZ_DISABLE_RDD_SANDBOX = "1";
     };
   };
 

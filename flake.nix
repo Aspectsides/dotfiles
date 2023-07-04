@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Daniel's Nix Config";
 
   inputs = {
     # Nixpkgs
@@ -11,14 +11,15 @@
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-wsl.url = "github:nix-community/nixos-wsl";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-wsl.url = "github:nix-community/nixos-wsl";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     vscode-server.url = "github:msteen/nixos-vscode-server";
     nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     eww.url = "github:elkowar/eww";
+    rust-overlay.url = "github:oxalica/rust-overlay";
 
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
@@ -29,11 +30,6 @@
     # Non Flakes
     fzf-tab = {
       url = "github:Aloxaf/fzf-tab";
-      flake = false;
-    };
-
-    rounded-sbe = {
-      url = "github:a-parhom/RoundedSBE";
       flake = false;
     };
 

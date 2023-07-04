@@ -4,8 +4,8 @@
   imports = [
     # auto generated
     ./hardware-configuration.nix
-    inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
     ../shared/configuration.nix
+    inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
   ];
 
   # overlay
@@ -30,7 +30,7 @@
 
       (_: prev:
         {
-          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-luajit-git;
+          # awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
         })
     ];
 
@@ -107,13 +107,11 @@
   hardware.asahi.useExperimentalGPUDriver = false;
   # hardware.asahi.experimentalGPUInstallMode = "driver";
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      START_CHARGE_THRESH_BAT0 = 80;
-      STOP_CHARGE_THRESH_BAT0 = 85;
-    };
-  };
+  # environment.variables = {
+  #   MESA_GL_VERSION_OVERRIDE = "3.3";
+  #   MESA_GLES_VERSION_OVERRIDE = "3.1";
+  #   MESA_GLSL_VERSION_OVERRIDE = "330";
+  # };
 
   # swap fn and control key
   boot.kernelParams = [
