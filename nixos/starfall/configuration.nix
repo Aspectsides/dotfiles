@@ -98,14 +98,14 @@
   };
 
   # new kernel
-  hardware.asahi.addEdgeKernelConfig = true;
+  hardware.asahi.addEdgeKernelConfig = false;
 
   # apple firmware
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
   # enable graphics acceleration
-  hardware.asahi.useExperimentalGPUDriver = true;
-  hardware.asahi.experimentalGPUInstallMode = "driver";
+  hardware.asahi.useExperimentalGPUDriver = false;
+  # hardware.asahi.experimentalGPUInstallMode = "driver";
 
   services.tlp = {
     enable = true;

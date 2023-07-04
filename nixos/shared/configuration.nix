@@ -4,9 +4,13 @@
 
   console.keyMap = "us";
 
+  networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   environment = {
     binsh = "${pkgs.bash}/bin/bash";
     shells = with pkgs; [ zsh ];
+
 
     systemPackages = lib.attrValues {
       inherit (pkgs)
@@ -16,26 +20,11 @@
         wget wirelesstools xarchiver xclip zip;
     };
 
+
     variables = {
-      EDITOR = "${pkgs.vim}/bin/vim";
-      # enable wayland
-      NIXOS_OZONE_WL = "1";
-      XDG_SESSION_TYPE = "wayland";
-      SDL_VIDEODRIVER = "wayland";
-      CLUTTER_BACKEND = "wayland";
-      GDK_BACKEND = "wayland";
-  
-      # qt
-      QT_QPA_PLATFORM = "wayland";
-      QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-  
-      # java
-      _JAVA_AWT_WM_NONREPARENTING = "1";
-  
-      # firefox
-      MOZ_ENABLE_WAYLAND = "1";
-      MOZ_USE_XINPUT2 = "1";
-      MOZ_DISABLE_RDD_SANDBOX = "1";
+      EDITOR = "${pkgs.neovim}/bin/nvim";
+      "_JAVA_OPTIONS" = "-Dawt.useSystemAAFontSettings=lcd";
+      "_JAVA_AWT_WM_NONREPARENTING" = "1";
     };
   };
 
@@ -149,7 +138,7 @@
     mutableUsers = true;
     defaultUserShell = pkgs.zsh;
 
-    users.javacafe01 = {
+    users.aspect = {
       description = "Daniel Xu";
       isNormalUser = true;
       home = "/home/aspect";

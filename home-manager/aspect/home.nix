@@ -28,6 +28,7 @@
     (import ../shared/programs/music { inherit config inputs lib pkgs; })
     (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
     (import ../shared/programs/dunst { inherit config inputs lib pkgs; })
+    (import ../shared/services/kanshi.nix { inherit config inputs lib pkgs; })
 
     (import ../shared/programs/firefox {
       inherit config pkgs;
@@ -163,6 +164,8 @@
         playerctl
         trash-cli
         xdg-user-dirs
+        file 
+        any-nix-shell
 
         # Formatters
         black

@@ -9,7 +9,7 @@ in
 {
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.sway-hidpi;
+    package = pkgs.sway;
     systemdIntegration = true;
     extraSessionCommands = ''
       export XDG_CURRENT_DESKTOP=sway;
@@ -75,7 +75,7 @@ in
         tagBinds
         // {
           "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
-          "${modifier}+d" = "exec appmenu";
+          "${modifier}+d" = "exec ~/.local/bin/appmenu";
           # "${modifier}+Shift+p" = "exec ${pkgs.ocrScript}/bin/wl-ocr";
           "${modifier}+Shift+p" = "exec ${pkgs.grim}/bin/grim -o eDP-1";
           # "XF86AudioLowerVolume" = "exec ${pkgs.volume}/bin/volume -d 5";

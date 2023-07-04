@@ -49,7 +49,7 @@
         (button :class "icon"
                 :orientation "v"
                 :onclick "''${EWW_CMD} open --toggle notifications-menu"
-           ""))
+           "󰍜"))
 
       (defwidget brightness []
         (button :class "icon"
@@ -156,7 +156,7 @@
     }
 
     window {
-      font-family: "Liga SFMono Nerd Font";
+      font-family: "monospace";
       font-size: 16px;
       background: $base00;
       color: $base04;
