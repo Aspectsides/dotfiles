@@ -30,7 +30,7 @@
 
       (_: prev:
         {
-          # awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
         })
     ];
 
@@ -42,11 +42,45 @@
   };
 
   services = {
-    greetd = {
+    # greetd = {
+    #   enable = true;
+    #   package = pkgs.greetd.tuigreet;
+    #   settings = {
+    #     default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --cmd sway";
+    #   };
+    # };
+    xserver = {
       enable = true;
-      package = pkgs.greetd.tuigreet;
-      settings = {
-        default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --cmd sway";
+
+      displayManager = {
+        autoLogin = {
+          enable = true;
+          user = "aspect";
+        };
+
+        defaultSession = "none+awesome";
+
+        lightdm = {
+          enable = true;
+          greeters.gtk.enable = true;
+        };
+      };
+
+      dpi = 140;
+
+      libinput = {
+        enable = true;
+        touchpad = { naturalScrolling = true; };
+      };
+
+      windowManager = {
+        awesome = {
+          enable = true;
+
+          luaModules = lib.attrValues {
+            inherit (pkgs.luajitPackages) lgi ldbus luadbi-mysql luaposix;
+          };
+        };
       };
     };
   };
@@ -60,6 +94,7 @@
       pavucontrol
       pciutils
       skippy-xd
+      mesa-asahi-edge
       xlockmore;
 
     inherit (pkgs.xfce)
@@ -98,14 +133,14 @@
   };
 
   # new kernel
-  hardware.asahi.addEdgeKernelConfig = false;
+  hardware.asahi.addEdgeKernelConfig = true;
 
   # apple firmware
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
   # enable graphics acceleration
-  hardware.asahi.useExperimentalGPUDriver = false;
-  # hardware.asahi.experimentalGPUInstallMode = "driver";
+  hardware.asahi.useExperimentalGPUDriver = true;
+  hardware.asahi.experimentalGPUInstallMode = "driver";
 
   # environment.variables = {
   #   MESA_GL_VERSION_OVERRIDE = "3.3";

@@ -4,7 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    
+
     # Home manager
     home.url = "github:nix-community/home-manager";
 
@@ -13,8 +13,8 @@
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # nixos-wsl.url = "github:nix-community/nixos-wsl";
-    nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nixpkgs-f2k.url = "github:Aspectsides/nixpkgs-f2k";
+    # nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     vscode-server.url = "github:msteen/nixos-vscode-server";
     nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
@@ -66,7 +66,6 @@
     # Default branch
     nixpkgs.follows = "nixos-unstable";
     home.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 

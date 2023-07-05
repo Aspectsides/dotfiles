@@ -17,6 +17,7 @@
     # ./nvim.nix
 
     (import ../shared/programs/foot { inherit config; })
+    (import ../shared/programs/alacritty { inherit config; })
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
     (import ../shared/programs/exa { inherit config; })
@@ -58,7 +59,6 @@
       # neovim-nightly-overlay.overlays.default
       inputs.nixpkgs-f2k.overlays.stdenvs
       inputs.nur.overlay
-      inputs.nixpkgs-wayland.overlay
 
       # Or define it inline, for example:
       # (final: prev: {
@@ -169,8 +169,9 @@
         playerctl
         trash-cli
         xdg-user-dirs
-        file 
+        file
         any-nix-shell
+        wlroots_0_15
 
         # Formatters
         black
@@ -200,25 +201,13 @@
         jq
         elinks
         glow
-        fzf 
+        fzf
         cached-nix-shell
         exiftool
         sdcv
         sqlite
         statix
         ripgrep;
-
-      inherit (pkgs.cinnamon)
-        xreader;
-
-      inherit (pkgs.luajitPackages)
-        jsregexp;
-
-      inherit (pkgs.nodePackages_latest)
-        prettier
-        prettier_d_slim
-        bash-language-server
-        pyright;
     };
 
     sessionPath = [
@@ -280,4 +269,5 @@
       videos = "${config.home.homeDirectory}/Videos";
     };
   };
+  xresources.extraConfig = import ../shared/x/resources.nix { theme = config.colorScheme; };
 }
