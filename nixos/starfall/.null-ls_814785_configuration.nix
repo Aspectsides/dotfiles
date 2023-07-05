@@ -27,7 +27,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-      inputs.rust-overlay.overlays.default
+
       (_: prev:
         {
           awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
@@ -52,15 +52,6 @@
     # };
     xserver = {
       enable = true;
-
-      config = ''
-        Section "OutpuClass"
-          Identifier "appledrm"
-          MatchDriver "apple"
-          Driver "modesetting"
-          Option "PrimaryGPU" "true"
-        EndSection
-      '';
 
       displayManager = {
         autoLogin = {
@@ -164,7 +155,7 @@
       '';
     }
   ];
-
+  # hardware.opengl.package = pkgs.mesa-asahi-edge.drivers;
   # new kernel
   hardware.asahi.experimentalGPUInstallMode = "replace";
   hardware.opengl.enable = true;

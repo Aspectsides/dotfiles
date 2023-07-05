@@ -17,9 +17,17 @@
     # nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
     vscode-server.url = "github:msteen/nixos-vscode-server";
-    nixos-apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
+    nixos-apple-silicon = {
+      url = github:tpwrules/nixos-apple-silicon;
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
+    };
     eww.url = "github:elkowar/eww";
-    rust-overlay.url = "github:oxalica/rust-overlay";
+    rust-overlay = {
+      url = github:oxalica/rust-overlay;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
@@ -69,7 +77,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home, ... }@inputs:
+  outputs = { self, nixpkgs, home, nixos-apple-silicon, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

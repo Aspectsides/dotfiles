@@ -26,8 +26,8 @@ theme.fg_focus = "#ffffff"
 theme.fg_urgent = "#ffffff"
 theme.fg_minimize = "#ffffff"
 
-theme.useless_gap = dpi(15)
-theme.gap_single_client = false
+theme.useless_gap = dpi(5)
+theme.gap_single_client = true
 theme.border_width = dpi(1)
 theme.border_color_active = helpers.math.lighten(theme.bg_focus, -10)
 theme.border_color_normal = helpers.math.lighten(theme.bg_normal, 10)
