@@ -1,10 +1,10 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}: let
+{ config
+, pkgs
+, inputs
+, lib
+, ...
+}:
+let
   dependencies = with pkgs;
     [
       kickoff
@@ -13,7 +13,8 @@
       coreutils
     ];
   theme = config.colorScheme;
-  ewwYuck = pkgs.writeText "eww.yuck" (''
+  ewwYuck = pkgs.writeText "eww.yuck" (
+    ''
       (defwidget bar []
         (centerbox :orientation "v"
                    :halign "center"
@@ -131,7 +132,8 @@
                     :anchor "left center")
         :exclusive true
         (bar))
-    '');
+    ''
+  );
 
   ewwScss = pkgs.writeText "eww.scss" (with theme.colors; ''
     $base00: #${base00};
@@ -217,7 +219,8 @@
       path = ewwYuck;
     }
   ];
-in {
+in
+{
   programs.eww = {
     enable = true;
     package = pkgs.eww-wayland;
@@ -226,13 +229,13 @@ in {
   systemd.user.services.eww = {
     Unit = {
       Description = "Eww daemon";
-      PartOf = ["graphical-session.target"];
+      PartOf = [ "graphical-session.target" ];
     };
     Service = {
       Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
       ExecStart = "${config.programs.eww.package}/bin/eww daemon --no-daemonize";
       Restart = "on-failure";
     };
-    Install.WantedBy = ["graphical-session.target"];
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 }

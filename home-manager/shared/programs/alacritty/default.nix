@@ -18,7 +18,7 @@ in
       };
 
       font = {
-        size = 12;
+        size = 13;
         builtin_box_drawing = true;
       };
 

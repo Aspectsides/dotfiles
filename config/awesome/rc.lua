@@ -1,19 +1,28 @@
--- awesome_mode: api-level=4:screen=on
+-- To Do:
+-- Panel redesign
+-- Widget placement userconf
+-- Theme reloading
+-- Multihead support
+-- Refactoring, always
 
--- load luarocks if installed
-pcall(require, "luarocks.loader")
+-- Errors
 
--- load theme
-local beautiful = require("beautiful")
-local gears = require("gears")
-beautiful.init(gears.filesystem.get_configuration_dir() .. "theme.lua")
+require("naughty").connect_signal("request::display_error", function(message, startup)
+	require("naughty").notification({
+		urgency = "critical",
+		title = "Error" .. (startup and " during startup!" or "!"),
+		message = message,
+	})
+end)
 
--- load key and mouse bindings
-require("bindings")
+-- Config
 
--- load rules
-require("rules")
+require("awful.autofocus")
+require("user")
+require("signal")
+require("config")
+require("theme")
 
--- load signals
-local signals = require("signals")
-signals.awesome.battery.enable() -- enable battery signal and notifs
+-- Autostart
+
+require("awful").spawn.with_shell("~/.config/awesome/autostart")

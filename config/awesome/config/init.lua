@@ -1,4 +1,4 @@
-return {
-   apps = require'config.apps',
-   vars = require'config.vars',
-}
+require("config.main")
+require("config.bind")
+require("config.rule")
+require("config.shot")

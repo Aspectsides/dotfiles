@@ -38,4 +38,5 @@ with theme.colors;
   ! white
   *.color7:           #${base06}
   *.color15:          #${base07}
+  Xft.dpi:   141
 ''

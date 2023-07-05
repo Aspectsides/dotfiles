@@ -16,7 +16,6 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    (import ../shared/programs/foot { inherit config; })
     (import ../shared/programs/alacritty { inherit config; })
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
@@ -191,7 +190,6 @@
         vscode
         font-manager
         transmission-gtk
-        autotiling-rs
 
         # Extras
         fd
