@@ -139,8 +139,8 @@
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
   # enable graphics acceleration
-  hardware.asahi.useExperimentalGPUDriver = true;
-  hardware.asahi.experimentalGPUInstallMode = "driver";
+  hardware.asahi.useExperimentalGPUDriver = false;
+  # hardware.asahi.experimentalGPUInstallMode = "driver";
 
   # environment.variables = {
   #   MESA_GL_VERSION_OVERRIDE = "3.3";
