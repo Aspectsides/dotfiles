@@ -17,6 +17,7 @@
     # ./nvim.nix
 
     (import ../shared/programs/alacritty { inherit config; })
+    (import ../shared/services/picom { inherit config; })
     (import ../shared/programs/bat { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
     (import ../shared/programs/exa { inherit config; })
