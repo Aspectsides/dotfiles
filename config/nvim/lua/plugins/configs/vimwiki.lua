@@ -1,0 +1,5 @@
+return {
+  {
+    "vimwiki/vimwiki",
+  },
+}
