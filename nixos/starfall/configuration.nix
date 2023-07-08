@@ -167,6 +167,7 @@
 
   # new kernel
   hardware.asahi.experimentalGPUInstallMode = "replace";
+  hardware.asahi.useExperimentalGPUDriver = true;
   hardware.opengl.enable = true;
   hardware.asahi.withRust = true;
   hardware.asahi.addEdgeKernelConfig = true;
