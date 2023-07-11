@@ -110,7 +110,7 @@
       '';
     };
 
-    homeDirectory = "/home/aspect";
+    homeDirectory = "/Users/daniel";
 
     packages = lib.attrValues {
       inherit (pkgs)

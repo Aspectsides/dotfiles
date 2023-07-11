@@ -5,6 +5,7 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     darwin.url = "github:lnl7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
     home.url = "github:nix-community/home-manager";
@@ -122,12 +123,9 @@
             ./nixos/starfall/configuration.nix
           ];
         };
-        nebula = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos/nebula/configuration.nix
-          ];
-        };
+      };
+      darwinConfigurations."nebula" = darwin.lib.darwinSystem {
+        modules = [ ./nixos/nebula/configuration.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
