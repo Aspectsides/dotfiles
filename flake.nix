@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    darwin.url = "github:lnl7/nix-darwin";
 
     # Home manager
     home.url = "github:nix-community/home-manager";
@@ -121,6 +122,12 @@
             ./nixos/starfall/configuration.nix
           ];
         };
+        nebula = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/nebula/configuration.nix
+          ];
+        };
       };
 
       # Standalone home-manager configuration entrypoint
@@ -132,6 +139,13 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             ./home-manager/aspect/home.nix
+          ];
+        };
+        "aspect@nebula" = home.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/daniel/home.nix
           ];
         };
       };
